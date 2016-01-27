@@ -1,0 +1,12 @@
+[Unit]
+Description=Dzogchen retrit stream
+RefuseManualStart=no
+RefuseManualStop=no
+ 
+[Timer]
+Persistent=yes
+OnCalendar=* 17:01:00
+Unit=backup-work.service
+ 
+[Install]
+WantedBy=default.target

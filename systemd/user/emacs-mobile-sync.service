@@ -1,0 +1,9 @@
+[Unit]
+Description=Emacs: sync org-mobile
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/emacsclient --eval "(org-mobile-pull)" --eval "(org-mobile-push)"
+
+[Install]
+WantedBy=timers.target

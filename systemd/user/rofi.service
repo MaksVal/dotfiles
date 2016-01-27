@@ -1,0 +1,15 @@
+[Unit]
+Description=Rofi launcher: SSH, RUN, WINDOWS
+
+[Service]
+User=mgordeev
+Environment=DISPLAY=:0.0
+Environment=XAUTHORITY=/home/mgordeev/.Xauthority
+#Type=forking
+#PIDFile=/var/run/rofi.pid
+ExecStart=/usr/bin/rofi -opacity  -sidebar-mode -pid /var/run/rofi.pid -display $DISPLAY
+ExecStop=/usr/bin/pkill --pidfile /var/run/rofi.pid
+#Restart=always
+
+[Install]
+WantedBy=default.target
