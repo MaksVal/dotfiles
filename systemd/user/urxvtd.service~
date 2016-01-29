@@ -1,10 +1,4 @@
-[Unit]
-Description=Urxvt Terminal Daemon
-Requires=urxvtd.socket
-
-[Service]
-ExecStart=/usr/bin/urxvtd -o -q
-Environment=RXVT_SOCKET=%t/urxvtd-%H
-
-[Install]
-WantedBy=MyTarget.target
+37BObpJu6Sytw3YS3sy+VN42/6KyrkUMPi+6wpIOYie+osERsI/ViFsrGymjyk31
+XTwUIRera6APdOnJ1wU+9LtxCyMkd56/hmkR5/wBP1Esye0Ko8wye84XBz7zUwq9
+Fwa+KfdyGWGCPryjYFekar2VLaPa1UC8cyFbdsTWTSa3PxWTVRQfyZ2QryU3LztK
+YiTqKdWAkWh0FjuwCpOswb+yd7WGNbZRE+FAU9e7/oCINv3Bl2svqVTqYwEIJpMI

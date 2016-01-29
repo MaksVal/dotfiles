@@ -1,14 +1,6 @@
-[Unit]
-Description=GPG Agent Daemon
-IgnoreOnIsolate=true
-
-[Service]
-ExecStart=/usr/bin/gpg-agent --daemon --no-detach --enable-ssh-support
-ExecStop=/usr/bin/pkill gpg-agent
-ExecReload=/bin/kill -HUP $MAINPID
-Type=forking
-Restart=on-abort
-
-
-[Install]
-WantedBy=default.target
+37BObpJu6Sytw3YS3sy+VMWJKcJvVelH7SR7sKbyrGDAZgMGd0PfX+M4t+t1Z8dA
+64CLUPQlJDJcHGySgpbnsT/JbEfBmrk85i9Kh26MsXIgFsDO/2cXIgwHF6jKp+Je
+8wgkzTcMJNfaJetb6WEtM3TZZAwNLMNDTAjkpyqrGFtMNJ0etXbOAVk4Dz2UrbaB
+Vr+p40c4QbCoXMGLk9BjJQU/nBMx12O/CzikLVo2hlKG9hJnhsxq1mBRI8Xp4UeU
+v23pVtNJ6XdVJoVI3Gc4oQ5H/0mFDd2F7tmAdlJvBbJGsaEGXiWw6HzCowk9n8qz
+ZFnhXRmzGfeLr6CEyoni+WTydZqSkN+vN7boNnvRkI6tKIJQQy0Mca9SIT+8Jb2N

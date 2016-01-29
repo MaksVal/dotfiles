@@ -1,9 +1,4 @@
-[Unit]
-Description=Emacs: sync org-mobile
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/emacsclient --eval "(org-mobile-pull)" --eval "(org-mobile-push)"
-
-[Install]
-WantedBy=timers.target
+37BObpJu6Sytw3YS3sy+VIHpBJeQZwtyNSIhbKsES0hkkKtL8hqLFurM0U2ARWOn
+Pnf94p7/bYTSJBopbxoU1WYDwCUqoemjQdYNQa8x6tUhISAsGgkiliishyWwI1Cs
+7s4TePTNEZIic9tDaPsQ3nXKc3wD9KHTaHD35wiErWJIk80xnVFL7qacuBJp+t7B
+8d0S+14erySKMPAFxOpMp30/uEqGXN9QKqIeoyamVVQbVwHMCq42t5vgNCeb3kdc

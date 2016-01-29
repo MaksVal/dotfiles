@@ -1,12 +1,4 @@
-[Unit]
-Description=Dzogchen retrit stream
-RefuseManualStart=no
-RefuseManualStop=no
- 
-[Timer]
-Persistent=yes
-OnCalendar=* 17:01:00
-Unit=backup-work.service
- 
-[Install]
-WantedBy=default.target
+37BObpJu6Sytw3YS3sy+VLuAhW/bYtJ7C3i+SbTE5TdEJo3YLsDJgSxYHypf3Uie
+GfLVnSPHs9QrHWQ+D0t/8jQyYvCBXutCAQnAcG5P+6/T+2J9ZleIOU2mFjjWdSWJ
+EZY2RZF1ZOdlqzv53ibmMkDqoMRHpyNldj3JGaVPWmzk/820E+N80P/BtIiylXcJ
+FQAu/ogsGNy1YVBPlpYped6dkzu6PcMhGb8TzsKHQDTh0y9IQghvEn0m07t1siwz
