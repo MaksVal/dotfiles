@@ -1,0 +1,17 @@
+[Unit]
+Description=Screensaver
+Documentation=man:xscreensaver man:xscreensaver-command man:xscreensaver-demo
+Conflicts=cinnamon-screensaver.service
+
+[Service]
+#Type=forking
+Environment=DISPLAY=:0
+ExecStartPre=/usr/bin/xscreensaver-command -exit
+ExecStart=/usr/bin/xscreensaver -no-splash
+ExecStop=/usr/bin/xscreensaver-command -exit
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+
