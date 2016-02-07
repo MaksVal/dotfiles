@@ -1,5 +1,13 @@
-37BObpJu6Sytw3YS3sy+VHFd37qflcmh7dFujKVaqKumOFy6FyQNsjSisklGdPol
-K1/o5dD+cjEfrM9arocFtytYzHW3UuvxjzCzde899/y2x3z5Pv4CXnYswcutMoN+
-rJFixRrN5xq+lW+43T596a7OLmBJ0R8m4JJwADsvHBcxAc81BhGBqzeRcG/V6llk
-2NS7b5JCFsO86RqNcteT2r2qWgT7XUyKmHXOyXmTXdESHBWF9MeUbD49vnFKseHY
-/UY33NId+vtfUxwtQOXMOeeM8e/7+TgJXDN86wLqArZO9vyQ9dIn+1VxfqLx9ogm
+[Unit]
+Description=Start offlineimap as a daemon
+After=gpg-agent.service
+Requires=gpg-agent.service
+ 
+[Service]
+Type=simple
+ExecStart=/usr/bin/offlineimap
+KillSignal=SIGUSR2
+Restart=always
+
+[Install]
+WantedBy=default.target

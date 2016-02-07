@@ -1,13 +1,23 @@
-37BObpJu6Sytw3YS3sy+VDL8JxVSzVvDtC6Urm6NRfQrfbBd5zJmAeCf4numBl/q
-kXvMYuUQu1ISUmZgNStE5UNaCvXkqmDETc/XhAR609vxuj306Fn14FLoXx2OdCHT
-2h8SVB87CntA0JYOzPM5CALihEuOoaOUvVPld72f3p4NjsFHHse7265MCpXAmxo5
-VAn0JrkE/z+143EmWDtPFhhE1x9uTJ3Exqwpt+PwdO8U77uuOMWFN/gVFkwTVJMP
-OzalmLNzeuRyskkqWDpeYH8lMlMSfRufiW88H7lr9PymfGidNKWyDow/hUBMJ4UG
-4YxDtP1aKVqWutBOXK9CuiTW/B7iXbhd50Iv6GpJPZG5c+cDtSFgDpIdEkDwjTmY
-2/27kjmDZR9azggiP6D0MK+8YltZ25kfeVT/rrrNq/hNmNejlhGI1LSryU0IzXIn
-5/sU+xo7vGvpg98bk47WIjYPo07ISHbcfHZE05/TfTFvSv0GUC36+12ImQDO6KOp
-SlbBtGgtPnpObzDPo0+vKJIwsIMjZAwkNGHhvpbXuYnNXTM5pdttTvHacwdBqUz8
-ms0Bv5QIKR7N9iukO+k8mwwy5OdxH7RPMMK4jnP5/6pDq76TJm97sdpOnUfdF484
-lHJpxnPfpOYi/2P7dViK4Av8cPo/jrcyJjl8YlwntT2rH74o0GRH2YZbDZV6O4hr
-ifiCTfV6R+L9OUNBCwUK3C0DYUVr57N5AeOcWEC6evUplAOqa17ZKG/Akjp8wTqD
-iN8cFVPnws8NvDHBDrBaSw==
+[Unit]
+Description=Music Player Daemon
+After=network.target sound.target
+
+[Service]
+ExecStart=/usr/bin/mpd --no-daemon --stdout --verbose
+
+
+# allow MPD to use real-time priority 50
+LimitRTPRIO=50
+LimitRTTIME=-1
+
+# move MPD to a top-level cgroup, as real-time budget assignment fails
+# in cgroup /system/mpd.service, because /system has a zero real-time
+# budget; see
+# http://www.freedesktop.org/wiki/Software/systemd/MyServiceCantGetRealtime/
+#ControlGroup=cpu:/mpd
+
+# assign a real-time budget
+#ControlGroupAttribute=cpu.rt_runtime_us 500000
+
+[Install]
+WantedBy=multi-user.target

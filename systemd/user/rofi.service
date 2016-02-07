@@ -1,9 +1,15 @@
-37BObpJu6Sytw3YS3sy+VH1IaRwtOKI5TbLf2N8/TVkcBUqVH+DjeIX/K75CvpN+
-Not/3nOSFpBFgrLMlr0TDRLi6umg3YW7hFy+3Mko4z9sy3JzCP5awoiUf9pdUA6t
-gpsZO7je8fpV0+Plu9H7r6wLxkBsRDOd9hESswqyxuXdAhbTO6b8AFvzQLeISBIU
-Smx7kNvyuHIumX2gLUanZ04/jOmkpLCIpxyPk/kJE+3cQbK/Prvsok1+JfF+wwpn
-Iun0B3StaO2Lk0YEoyMUMb6J0yuQoj9/JyG1t3JgeJ/+gexSp9dqwUUVu95JPBs6
-JE+qcq7m52tbjLoyxOUGWGvpvs/6re0kc8/33nmBKkKL31c4pFqaxAlLTSZ93DQG
-hCl/JDTZsKWj7OJWGskU9EPbx5yPhOm/LUp2pJE3ODfyhQzxLhGpH/dce8bFsv7+
-8UwfdOI2tEMFIf9SQ1CNpIfQnjzK/T/OCSdZwsz6TbATESgGFip9DGGK2YtObSic
-MlY4hT4bRpKAn0ITthWcUg==
+[Unit]
+Description=Rofi launcher: SSH, RUN, WINDOWS
+
+[Service]
+User=mgordeev
+Environment=DISPLAY=:0.0
+Environment=XAUTHORITY=/home/mgordeev/.Xauthority
+#Type=forking
+#PIDFile=/var/run/rofi.pid
+ExecStart=/usr/bin/rofi -opacity  -sidebar-mode -pid /var/run/rofi.pid -display $DISPLAY
+ExecStop=/usr/bin/pkill --pidfile /var/run/rofi.pid
+#Restart=always
+
+[Install]
+WantedBy=default.target

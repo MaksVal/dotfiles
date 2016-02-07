@@ -1,5 +1,11 @@
-37BObpJu6Sytw3YS3sy+VPJT4fmZvGvBap/3kkXdT4ePhKw+8zsFLMNmrkHAAxI5
-JTl2kBoMQLYVVVWXPLcYpesu3eaVRJLEvRZkLmGfP0mbEwAPIh6hRf5KYafkrzC3
-9DCMJk54qKmx//+5/gyxghnvUrf19UefpuD1c1ddHGon1Wd+iiqf7vPX7Vt9o+NA
-zVFgOiRloSz3VUxMqBnzd41lh2fX/3KvFAKwtGLAo84Y9/+LZFugqWCRiQpJ+qM7
-n6jHMGIthlsZEbZRGHVDKDzM7ln11z58wLcaR1IEyIQx048w2UFl0YAeY5rxHNm2
+[Unit]
+Description=Emacs: the extensible, self-documenting text editor
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/emacs --daemon
+ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
+Restart=always
+
+[Install]
+WantedBy=default.target
