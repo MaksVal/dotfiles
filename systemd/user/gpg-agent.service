@@ -1,6 +1,6 @@
 [Unit]
 Description=GPG Agent Daemon
-IgnoreOnIsolate=true
+#IgnoreOnIsolate=true
 
 [Service]
 ExecStart=/usr/bin/gpg-agent --daemon --no-detach
@@ -8,7 +8,6 @@ ExecStop=/usr/bin/pkill gpg-agent
 ExecReload=/bin/kill -HUP $MAINPID
 Type=forking
 Restart=on-abort
-
 
 [Install]
 WantedBy=default.target

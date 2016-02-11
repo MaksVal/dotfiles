@@ -1,87 +1,138 @@
-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
-yed56m8b5m2oUvqiCzXSQg==
+# -*- coding: latin-1 -*-
+#!/usr/bin/python
+import binascii
+import codecs
+import sys
+import re, os
+
+
+def get_password(machine, login, port):
+    s = "machine %s login %s port %s password ([^ ]*)\n" % (machine, login, port)
+    p = re.compile(s)
+    authinfo = os.popen("gpg -q --no-tty -d ~/.offlineimappass.gpg").read()
+    return p.search(authinfo).group(1)
+    
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+"""
+Imap folder names are encoded using a special version of utf-7 as defined in RFC 
+2060 section 5.1.3.
+ 
+5.1.3.  Mailbox International Naming Convention
+ 
+   By convention, international mailbox names are specified using a
+   modified version of the UTF-7 encoding described in [UTF-7].  The
+   purpose of these modifications is to correct the following problems
+   with UTF-7:
+ 
+      1) UTF-7 uses the "+" character for shifting; this conflicts with
+         the common use of "+" in mailbox names, in particular USENET
+         newsgroup names.
+ 
+      2) UTF-7's encoding is BASE64 which uses the "/" character; this
+         conflicts with the use of "/" as a popular hierarchy delimiter.
+ 
+      3) UTF-7 prohibits the unencoded usage of "\"; this conflicts with
+         the use of "\" as a popular hierarchy delimiter.
+ 
+      4) UTF-7 prohibits the unencoded usage of "~"; this conflicts with
+         the use of "~" in some servers as a home directory indicator.
+ 
+      5) UTF-7 permits multiple alternate forms to represent the same
+         string; in particular, printable US-ASCII chararacters can be
+         represented in encoded form.
+ 
+   In modified UTF-7, printable US-ASCII characters except for "&"
+   represent themselves; that is, characters with octet values 0x20-0x25
+   and 0x27-0x7e.  The character "&" (0x26) is represented by the two-
+   octet sequence "&-".
+ 
+   All other characters (octet values 0x00-0x1f, 0x7f-0xff, and all
+   Unicode 16-bit octets) are represented in modified BASE64, with a
+   further modification from [UTF-7] that "," is used instead of "/".
+   Modified BASE64 MUST NOT be used to represent any printing US-ASCII
+   character which can represent itself.
+ 
+   "&" is used to shift to modified BASE64 and "-" to shift back to US-
+   ASCII.  All names start in US-ASCII, and MUST end in US-ASCII (that
+   is, a name that ends with a Unicode 16-bit octet MUST end with a "-
+   ").
+ 
+      For example, here is a mailbox name which mixes English, Japanese,
+      and Chinese text: ~peter/mail/&ZeVnLIqe-/&U,BTFw-
+ 
+"""
+
+# encoding
+ 
+def modified_base64(s):
+    s = s.encode('utf-16be')
+    return binascii.b2a_base64(s).rstrip('\n=').replace('/', ',')
+ 
+def doB64(_in, r):
+    if _in:
+        r.append('&%s-' % modified_base64(''.join(_in)))
+        del _in[:]
+ 
+def encoder(s):
+    r = []
+    _in = []
+    for c in s:
+        ordC = ord(c)
+        if 0x20 <= ordC <= 0x25 or 0x27 <= ordC <= 0x7e:
+            doB64(_in, r)
+            r.append(c)
+        elif c == '&':
+            doB64(_in, r)
+            r.append('&-')
+        else:
+            _in.append(c)
+    doB64(_in, r)
+    return (str(''.join(r)), len(s))
+ 
+ 
+# decoding
+ 
+def modified_unbase64(s):
+    b = binascii.a2b_base64(s.replace(',', '/') + '===')
+    return unicode(b, 'utf-16be')
+ 
+ 
+def decoder(s):
+    r = []
+    decode = []
+    for c in s:
+        if c == '&' and not decode:
+            decode.append('&')
+        elif c == '-' and decode:
+            if len(decode) == 1:
+                r.append('&')
+            else:
+                r.append(modified_unbase64(''.join(decode[1:])))
+            decode = []
+        elif decode:
+            decode.append(c)
+        else:
+            r.append(c)
+    if decode:
+        r.append(modified_unbase64(''.join(decode[1:])))
+    bin_str = ''.join(r)
+    return (bin_str, len(s))
+ 
+ 
+class StreamReader(codecs.StreamReader):
+    def decode(self, s, errors='strict'):
+        return decoder(s)
+ 
+ 
+class StreamWriter(codecs.StreamWriter):
+    def decode(self, s, errors='strict'):
+        return encoder(s)
+ 
+ 
+def imap4_utf_7(name):
+    if name == 'imap4-utf-7':
+        return (encoder, decoder, StreamReader, StreamWriter)
+codecs.register(imap4_utf_7)
