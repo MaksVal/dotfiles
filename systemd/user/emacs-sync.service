@@ -4,8 +4,9 @@ Description=Emacs: sync org mode
 [Service]
 Type=oneshot
 WorkingDirectory=%h/ORG/
-Environment="GIT_SSH_COMMAND="ssh -i %h/.ssh/id_rsa_bb"
-ExecStart=/usr/bin/git pull
+#Environment="GIT_SSH_COMMAND="ssh -i %h/.ssh/id_rsa_bb"
+ExecStartPre=$HOME/bin/orgsync.sh
+ExecStart=%h/bin/orgsync.sh doit
 
 [Install]
 WantedBy=timers.target
