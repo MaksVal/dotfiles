@@ -1,0 +1,14 @@
+[Unit]
+Description=Yandex Disk
+#Requires=dbus.socket
+
+[Service]
+Type=forking
+ExecStart=/opt/bin/yandex-disk start
+ExecStop=/opt/bin/yandex-disk stop
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
