@@ -1,0 +1,10 @@
+[Unit]
+Description=Run offlineimap daily and on boot
+
+[Timer]
+OnBootSec=5min
+OnCalendar=*:*:0,30
+Unit=offlineimap.service
+
+[Install]
+WantedBy=multi-user.target
