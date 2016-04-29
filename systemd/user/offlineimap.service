@@ -4,10 +4,10 @@ After=gpg-agent.service
 Requires=gpg-agent.service
 
 [Service]
+CPUShares=512
 Type=simple
 ExecStart=/usr/bin/offlineimap
 KillSignal=SIGUSR2
-#Restart=on-failure
 
 [Install]
 WantedBy=timers.target
