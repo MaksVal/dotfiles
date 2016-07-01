@@ -5,7 +5,7 @@ Requires=gpg-agent.service
 
 [Service]
 CPUShares=512
-Type=simple
+Type=oneshot
 ExecStart=/usr/bin/offlineimap
 KillSignal=SIGUSR2
 
