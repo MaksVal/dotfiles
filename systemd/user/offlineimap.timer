@@ -3,7 +3,7 @@ Description=Run offlineimap daily and on boot
 
 [Timer]
 OnBootSec=5min
-OnCalendar=*:*:1,30
+OnCalendar=*:*:1,20,45
 Unit=offlineimap.service
 
 [Install]

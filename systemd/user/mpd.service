@@ -3,7 +3,7 @@ Description=Music Player Daemon
 After=network.target sound.target
 
 [Service]
-ExecStart=/usr/bin/mpd --no-daemon --stdout
+ExecStart=/usr/bin/mpd --no-daemon
 ExecReload=/usr/bin/mpc update
 
 # allow MPD to use real-time priority 50
