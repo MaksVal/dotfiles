@@ -197,12 +197,12 @@
 
 mpd_host = localhost
 mpd_port = 6600
-mpd_music_dir = /home/mgordeev/Music
+mpd_music_dir = ~/Music
 system_encoding = UTF8
 enable_window_title = no
 
-ncmpcpp_directory = /home/mgordeev/.ncmpcpp
-lyrics_directory = /home/mgordeev/Music/Lyrics
+ncmpcpp_directory = ~/.ncmpcpp
+lyrics_directory = ~/Music/Lyrics
 
 # Visualizer
 visualizer_fifo_path = /tmp/mpd.fifo
