@@ -3,7 +3,9 @@ Description=GPG Agent Daemon
 #IgnoreOnIsolate=true
 
 [Service]
+ExecStartPre=if (/usr/bin/pgrep gpg); then /usr/bin/pkill -9 gpg; fi
 ExecStart=/usr/bin/gpg-agent --daemon --no-detach
+ExecStartPost=/usr/bin/gpg-connect-agent /bye
 ExecStop=/usr/bin/pkill gpg-agent
 ExecReload=/bin/kill -HUP $MAINPID
 Type=forking

@@ -1,10 +1,10 @@
 [playlist]
 NumberOfEntries=5
-File1=http://prem2.di.fm:80/goapsy?8d71c1dc7f4f95ecaaae2358
-Title1=Digitally Imported - Goa-Psy Trance
+File1=http://prem2.di.fm:80/psychill?8d71c1dc7f4f95ecaaae2358
+Title1=Digitally Imported - PsyChill
 Length1=-1
-File2=http://prem2.di.fm:80/psychill?8d71c1dc7f4f95ecaaae2358
-Title2=Digitally Imported - PsyChill
+File2=http://prem2.di.fm:80/goapsy?8d71c1dc7f4f95ecaaae2358
+Title2=Digitally Imported - Goa-Psy Trance
 Length2=-1
 File3=http://prem2.di.fm:80/progressivepsy?8d71c1dc7f4f95ecaaae2358
 Title3=Digitally Imported - Progressive Psy

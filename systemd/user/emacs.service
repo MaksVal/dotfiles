@@ -1,8 +1,16 @@
 [Unit]
 Description=Emacs: the extensible, self-documenting text editor
+Dependencies=gpg-agent.service
+After=gpg-agent.service
 
 [Service]
+Environment=DISPLAY
+Environment=XAUTHORITY=/home/mgordeev/.Xauthority
 Environment=SSH_AUTH_SOCK
+Environment=PATH
+Environment=DBUS_SESSION_BUS_ADDRESS
+Environment=GPG_TTY
+
 Type=forking
 ExecStart=/usr/bin/emacs --daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"

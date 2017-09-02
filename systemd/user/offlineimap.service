@@ -1,13 +1,15 @@
 [Unit]
 Description=Start offlineimap as a daemon
-After=gpg-agent.service
 Requires=gpg-agent.service
+After=gpg-agent.service
 
 [Service]
 CPUShares=512
-Type=oneshot
+#Type=forking
+
 ExecStart=/usr/bin/offlineimap
 KillSignal=SIGUSR2
+Restart=always
 
 [Install]
-WantedBy=timers.target
+WantedBy=default.target
