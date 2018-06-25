@@ -5,7 +5,7 @@ Description=QEMU virtual machine
 Environment="type=system-x86_64" "haltcmd=kill -INT $MAINPID"
 EnvironmentFile=%h/.config/qemu.d/%i
 PIDFile=/tmp/%i.pid
-ExecStart=/usr/bin/env qemu-${type} -name %i -nographic -pidfile /tmp/%i.pid $args
+ExecStart=/usr/bin/env qemu-${type} -name %i -pidfile /tmp/%i.pid $args
 #ExecStop=/bin/sh -c ${haltcmd}
 TimeoutStopSec=30
 #KillMode=none
