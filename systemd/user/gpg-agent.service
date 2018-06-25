@@ -7,7 +7,7 @@ Description=GPG Agent Daemon
 ExecStart=/usr/bin/gpg-agent --daemon --no-detach
 ExecStartPost=/usr/bin/gpg-connect-agent /bye
 ExecStop=/usr/bin/pkill gpg-agent
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/usr/bin/gpgconf --reload gpg-agent
 Type=forking
 Restart=on-abort
 
