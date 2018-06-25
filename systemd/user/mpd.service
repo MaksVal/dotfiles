@@ -8,7 +8,7 @@ ExecReload=/usr/bin/mpc update
 
 # allow MPD to use real-time priority 50
 LimitRTPRIO=50
-LimitRTTIME=-1
+#LimitRTTIME=-1
 
 # move MPD to a top-level cgroup, as real-time budget assignment fails
 # in cgroup /system/mpd.service, because /system has a zero real-time

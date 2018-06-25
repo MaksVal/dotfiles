@@ -1,0 +1,8 @@
+[Service]
+Environment=DISPLAY
+Environment=PATH
+Environment="XAUTHORITY=/home/maksval/.Xauthority"
+ExecStart=/bin/bash -c %i
+
+[Install]
+WantedBy=graphical.target
