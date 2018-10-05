@@ -1,0 +1,3 @@
+[submodule "awesome.my"]
+	path = awesome.my
+	url = ./awesome.my
