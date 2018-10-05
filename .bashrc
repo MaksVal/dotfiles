@@ -36,10 +36,13 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >> /dev/null
 
-export DE='xfce4'
+export DE='gnome'
 export DM='awesome'
 export TERM='konsole'
-export PATH="$HOME/bin:/opt/bin:$PATH"
+export XDG_CURRENT_DESKTOP=GNOME
 export EDITOR='emacsclient -c -nw -a emacs'
 export VISUAL='emacsclient -c -a emacs'
 export RANGER_LOAD_DEFAULT_RC=FALSE
+export PATH="$HOME/bin:/opt/bin:$PATH"
+export PATH="$PATH:/usr/local/MATLAB/R2017a/bin/:${HOME}/.cask/bin:/usr/lib/llvm/5/bin"
+#export _JAVA_OPTIONS=”-Dawt.useSystemAAFontSettings=on”
