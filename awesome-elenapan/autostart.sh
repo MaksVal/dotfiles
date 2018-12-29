@@ -32,10 +32,10 @@ run compton --config ~/.config/compton/compton.conf
 #run numlockx
 
 # For battery notifications
-run xfce4-power-manager
+#run xfce4-power-manager
 
 # Network manager tray icon
-run nm-applet
+#run nm-applet
 
 # Keyboard
 #setxkbmap -layout "us,gr" -option "grp:alt_shift_toggle"
@@ -45,7 +45,7 @@ run nm-applet
 #pkill redshift
 
 # Music
-run mpd ~/.config/mpd/mpd.conf
+#run mpd ~/.config/mpd/mpd.conf
 
 # Scratchpad
 #scratchpad

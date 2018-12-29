@@ -45,4 +45,5 @@ export VISUAL='emacsclient -c -a emacs'
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export PATH="$HOME/bin:/opt/bin:$PATH"
 export PATH="$PATH:/usr/local/MATLAB/R2017a/bin/:${HOME}/.cask/bin:/usr/lib/llvm/5/bin"
+export PATH="/home/mgordeev/.emacs.d/.cask/26.1/elpa/rtags-20180925.641/rtags-2.20/bin:$PATH"
 #export _JAVA_OPTIONS=”-Dawt.useSystemAAFontSettings=on”

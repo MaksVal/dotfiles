@@ -23,6 +23,42 @@ local theme_name = theme_collection[1]
 -- Jit
 --pcall(function() jit.on() end)
 
+function run_systemd(cmd)
+   awful.spawn("systemctl --user start app@" .. cmd)
+end
+
+function run_once(cmd, args)
+   findme = cmd
+   firstspace = cmd:find(" ")
+   if firstspace then
+      findme = cmd:sub(0, firstspace-1)
+   end
+   if (args) then
+      awful.spawn.with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. " " .. args .. ")")
+   else
+      awful.spawn.with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd  .. ")")
+   end
+end
+
+function run_check(cmd)
+   local cmd = {"bash", "-c", cmd}
+   awful.spawn.easy_async(cmd, function(stdout, stderr, reason, exit_code)
+                             naughty.notify { text = "output is " .. stdout }
+                             naughty.notify({ preset = naughty.config.presets.critical,
+                                              title = "Oops...",
+                                              text = tostring(stderr) })
+                               end)
+end
+
+function kill_and_run(cmd)
+   findme = cmd
+   firstspace = cmd:find(" ")
+   if firstspace then
+      findme = cmd:sub(0, firstspace-1)
+   end
+   awful.util.spawn_with_shell("pkill -9 " .. cmd .. " ; (" .. cmd .. ")")
+end
+
 -- Theme handling library
 beautiful = require("beautiful")
 -- Themes define colours, icons, font and wallpapers.
@@ -52,6 +88,7 @@ package.path = configpath .. "/lib/?.lua;" .. configpath .. "/lib/?/init.lua;" .
 -- {{{ Initialize stuff
 local helpers = require("helpers")
 local bars = require("bars")
+-- keys = require("keys")
 -- keys = require("keys")
 local titlebars = require("titlebars")
 -- }}}
@@ -88,22 +125,18 @@ end
 
 -- {{{ Variable definitions
 -- This is used later as the default terminal and editor to run.
-terminal = "konsole"
-editor = "emacsclient -c -a emacs"
---editor = os.getenv("EDITOR") or "nano"
-editor_cmd = terminal .. " -e " .. editor .. " "
-terminal 		= "konsole" or "xterm"
+terminal 		= "gnome-terminal" or "xterm"
 terminal_run	= "konsole -e "
-editor     		= os.getenv("EDITOR") or "emacs" or "vi"
+editor     		= os.getenv("EDITOR") or "emacsclient -c -a emacs" or "emacs" or "vim" or "vi" or "nano"
 editor_cmd 		= terminal .. " -e " .. editor
-editorGui 		= (os.getenv("VISUAL") or "emacs -nw")
+editorGui 		= os.getenv("VISUAL") or "emacsclient -c -a emacs" or "emacs -nw"
 player     		= terminal .. " -e ncmpcpp"
 browser_run	    = "google-chrome-stable"
-browser_flags	= " --high-dpi-support=1 --force-device-scale-factor=1.3 --enable-extensions --embed-flash-fullscreen  --ignore-gpu-blacklist --password-store=basic"
+browser_flags	= " --high-dpi-support=1 --force-device-scale-factor=1.2 --enable-extensions --embed-flash-fullscreen  --ignore-gpu-blacklist --password-store=basic"
 browser			= browser_run .. browser_flags
-mail            = editorGui   .. " -e \"\(mu4e\)\""
+-- mail            = editorGui   .. " -e \"\(mu4e\)\"" or nil
 -- xscreen_lock	= "dm-tool lock"
-xscreen_lock	= "xscreensaver-command -lock"
+ xscreen_lock	= "xscreensaver-command -lock"
 music_play		= "mpc toggle || ncmpc toggle || pms toggle"
 music_stop 		= "mpc stop || ncmpc stop || pms stop"
 music_prev		= "mpc prev || ncmpc prev || pms prev"
@@ -197,11 +230,11 @@ mymusicmenu = {
        { "mpd next", function() awful.spawn.with_shell("mpc next") end},
        { "mpd previous", function() awful.spawn.with_shell("mpc prev") end},
        { "ncmpcpp", function() awful.spawn.with_shell(terminal .. " -e ncmpcpp") end},
-       { "--------------", nil},
-       { "mpv toggle", function() awful.spawn.with_shell("mpvc toggle") end},
-       { "mpv next", function() awful.spawn.with_shell("mpvc next") end},
-       { "mpv previous", function() awful.spawn.with_shell("mpvc prev") end},
-       { "mpvtube", function() awful.spawn.with_shell("~/scr/Rofi/rofi_mpvtube") end}
+       -- { "--------------", nil},
+       -- { "mpv toggle", function() awful.spawn.with_shell("mpvc toggle") end},
+       -- { "mpv next", function() awful.spawn.with_shell("mpvc next") end},
+       -- { "mpv previous", function() awful.spawn.with_shell("mpvc prev") end},
+       -- { "mpvtube", function() awful.spawn.with_shell("~/scr/Rofi/rofi_mpvtube") end}
 }
 
 -- Need to allow these commands to be run without password
@@ -248,10 +281,10 @@ local function set_wallpaper(s)
         --gears.wallpaper.maximized(wallpaper, s, true)
 
         -- Method 2: Set theme's wallpaper with feh
-        --awful.spawn.with_shell("feh --bg-fill " .. wallpaper)
+        awful.spawn.with_shell("feh --bg-scale " .. wallpaper)
 
         -- Method 3: Set last wallpaper with feh
-        awful.spawn.with_shell(os.getenv("HOME") .. "/.fehbg")
+        -- awful.spawn.with_shell(os.getenv("HOME") .. "/.fehbg")
     end
 end
 
@@ -441,51 +474,15 @@ client.connect_signal("request::activate",
         awful.ewmh.activate(c, context, hints)
     end
 )
-function run_systemd(cmd)
-   awful.spawn("systemctl --user start app@" .. cmd)
-end
-
-function run_once(cmd, args)
-   findme = cmd
-   firstspace = cmd:find(" ")
-   if firstspace then
-      findme = cmd:sub(0, firstspace-1)
-   end
-   if (args) then
-      awful.spawn.with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. " " .. args .. ")")
-   else
-      awful.spawn.with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd  .. ")")
-   end
-end
-
-function run_check(cmd)
-   local cmd = {"bash", "-c", cmd}
-   awful.spawn.easy_async(cmd, function(stdout, stderr, reason, exit_code)
-                             naughty.notify { text = "output is " .. stdout }
-                             naughty.notify({ preset = naughty.config.presets.critical,
-                                              title = "Oops...",
-                                              text = tostring(stderr) })
-                               end)
-end
-
-function kill_and_run(cmd)
-   findme = cmd
-   firstspace = cmd:find(" ")
-   if firstspace then
-      findme = cmd:sub(0, firstspace-1)
-   end
-   awful.util.spawn_with_shell("pkill -9 " .. cmd .. " ; (" .. cmd .. ")")
-end
 
 -- Startup applications
 -- {{{ Autostart
 awful.spawn.easy_async("xrdb -merge .Xdefaults")
-run_systemd("wallpaper.sh")
-run_systemd("nm-applet")
-run_once("dropbox")
+-- run_systemd("wallpaper.sh")
+-- run_systemd("nm-applet")
 run_once("wmname")
 awful.spawn.with_shell( os.getenv("HOME") .. "/.config/awesome/autostart.sh")
-
+-- }}} Autostart
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)

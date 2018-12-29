@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
 
-if [ -s ~/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
-fi
-
 # /usr/lib/xfce4/notifyd/xfce4-notifyd &
 # Make sure this is before the 'exec' command or it won't be sourced.
-[ -f /etc/xprofile ] && source /etc/xprofile
+# [ -f /etc/xprofile ] && source /etc/xprofile
 
 # eval $(gnome-keyring-daemon --components=pkcs11,secrets)
 ## Monitor config:
@@ -16,42 +12,24 @@ fi
 # xrandr --output HDMI1  --mode 1680x1050 --dpi 100 --rotate left --pos 1920x0 --output HDMI2 --mode 1920x1080i --pos 1920x0
 # xrandr --output HDMI1  --mode 1680x1050 --rotate left 106 --output HDMI2 --mode 1920x1080 --left-of HDMI1 --primary --dpi 106 &
 #xrandr --output HDMI1  --mode 1680x1050 --rotate left --dpi 102 --output HDMI2  --mode 1920x1080 --right-of HDMI1 --primary --dpi 102  &
-xrandr --output HDMI2  --auto --rotate left --dpi 120 --output HDMI1  --primary --mode 1920x1080 --right-of HDMI2
+xrandr --output HDMI-1  --mode 2048x1152 --rotate normal --output LVDS-1  --off
 #xrandr --output HDMI1  --auto --dpi 120 --rotate left --output HDMI2 --mode 1920x1080 --right-of HDMI1 --primary --dpi 120
 #xrandr --output HDMI1  --mode 1680x1050 --rotate normal --dpi 100 --primary --output HDMI2 --off &
 
 #xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
 # keyboard conf:
-setxkbmap  -layout us,ru -option terminate:ctrl_alt_bksp,grp:caps_toggle,grp_led:caps &
+# setxkbmap  -layout us,ru -option terminate:ctrl_alt_bksp,grp:caps_toggle,grp_led:caps &
+# localectl set-x11-keymap us,ru "microsoft7000" ""  "terminate:ctrl_alt_bksp,grp:caps_toggle,grp_led:caps"
 
+
+if [ -s ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap &
+fi
 # Keyboard settings
-xmodmap ~/.Xmodmap &
-xbindkeys -f ~/.xbindkeysrc &
+if [ -s ~/.xbindkeysrc ]; then
+    xbindkeys -f ~/.xbindkeysrc &
+fi
 #xinput --set-prop 10 "libinput Natural Scrolling Enabled" 1
-
-#Autostart programm
-# autostart.sh > ~/log &
-
-# wmname Sawfish &
-# BackgroundSet
-
-# start urxvt daemon
-# /usr/bin/urxvtd -f -o >> ~/.cache/urxvt.log &
-
-
-#case "$DM" in
-#	dwm)
-#		exec dwm;;
-#	kde)
-#		exec ck-launch-session startkde;;
-#	i3)
-#		exec /home/maks/bin/i3-start;; ## -V -d all >~/.i3/logs/$(date +'%F-%k-%M-%S').log 2>&1;;
-#	xmonad)
-#		exec ck-launch-session dbus-launch /usr/bin/xmonad;;
-#	awesome)
-#/usr/libexec/polkit-gnome-authentication-agent-1 &
-#sleep 5 &
-#/usr/lib64/kde4/libexec/polkit-kde-authentication-agent-1
 
 if [[ ! -d ~/.cache/awesome ]]
 then
@@ -59,32 +37,15 @@ then
 fi
 #xcompmgr -fF -I-.002 -O-.003 -D1 &
 
-# export GNOME_KEYRING_PID
-# export GNOME_KEYRING_SOCKET
-
-# Makes fonts darker and thicker
-# export INFINALITY_FT_BRIGHTNESS="-10"
-# Not too sharp, not too smooth
-# export INFINALITY_FT_FILTER_PARAMS="16 20 28 20 16"
-# export $(dbus-launch)
-
-# /usr/bin/gpg-agent --daemon --no-detach
-
-. /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-. /etc/X11/xinit/xinitrc.d/80-dbus
-
-systemctl --user import-environment PATH
-systemctl --user import-environment SSH_AUTH_SOCK
-systemctl --user import-environment GPG_TTY
-systemctl --user import-environment DBUS_SESSION_BUS_ADDRESS
-systemctl --user import-environment DISPLAY
-systemctl --user start pulseaudio &
-
 # gpg-connect-agent updatestartuptty /bye >> /dev/null &
-xrdb -merge ~/.Xresources &
+if [ -s ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources &
+fi
 
 export XDG_CURRENT_DESKTOP=GNOME
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export GTK_THEME=lovelace
+export GTK2_RC_FILES=~/.themes/lovelace/gtk-2.0/gtkrc
 
 # exec gnome-session --session=awesome-gnome
 exec  /usr/bin/awesome >> ~/.cache/awesome/stderr 2>&1

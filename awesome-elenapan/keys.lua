@@ -16,7 +16,7 @@ shiftkey = "Shift"
 
 -- {{{ Mouse bindings
 keys.desktopbuttons = gears.table.join(
-    awful.button({ }, 1, function () 
+    awful.button({ }, 1, function ()
         mymainmenu:hide()
         uc = awful.client.urgent.get()
         -- If there is no urgent client, go back to last tag
@@ -42,7 +42,7 @@ keys.desktopbuttons = gears.table.join(
               c:raise()
           end
     end),
-        
+
     -- Middle click and scrolling - Control volume
     awful.button({ }, 2, function () awful.spawn.with_shell("volume-control.sh toggle") end),
     awful.button({ }, 4, function () awful.spawn.with_shell("volume-control.sh up") end),
@@ -198,8 +198,8 @@ keys.globalkeys = gears.table.join(
             end
         end,
           {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey }, "Tab", function() awful.spawn.with_shell("~/scr/Rofi/rofi_combi") end,
-              {description = "window switcher", group = "launcher"}),
+    -- awful.key({ modkey }, "Tab", function() awful.spawn.with_shell("~/scr/Rofi/rofi_combi") end,
+    --           {description = "window switcher", group = "launcher"}),
     --awful.key({ modkey,           }, "Tab",
         --function ()
             --awful.client.focus.history.previous()
@@ -247,8 +247,8 @@ keys.globalkeys = gears.table.join(
         end
     end,
       {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey, shiftkey   }, "h",   
-    function () 
+    awful.key({ modkey, shiftkey   }, "h",
+    function ()
         local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
         local c = client.focus
         -- Floating: move client to edge
@@ -260,8 +260,8 @@ keys.globalkeys = gears.table.join(
         end
     end,
     {description = "swap with direction left", group = "client"}),
-    awful.key({ modkey, shiftkey   }, "l",   
-    function () 
+    awful.key({ modkey, shiftkey   }, "l",
+    function ()
         local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
         local c = client.focus
         -- Floating: move client to edge
@@ -273,35 +273,35 @@ keys.globalkeys = gears.table.join(
         end
     end,
     {description = "swap with direction right", group = "client"}),
-    awful.key({ modkey }, "h",   
-    function () 
-        awful.tag.incnmaster( 1, nil, true) 
+    awful.key({ modkey }, "h",
+    function ()
+        awful.tag.incnmaster( 1, nil, true)
     end,
     {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey }, "l",   
-    function () 
-        awful.tag.incnmaster(-1, nil, true) 
+    awful.key({ modkey }, "l",
+    function ()
+        awful.tag.incnmaster(-1, nil, true)
     end,
     {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, shiftkey, ctrlkey }, "h",     function () 
+    awful.key({ modkey, shiftkey, ctrlkey }, "h",     function ()
         local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
         local c = client.focus
         -- Floating: move client
         if c ~= nil and (current_layout == "floating" or c.floating) then
             c:relative_move( -20,  0,  0,   0)
         else
-            awful.tag.incncol( 1, nil, true)    
+            awful.tag.incncol( 1, nil, true)
         end
     end,
               {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, shiftkey, ctrlkey }, "l",     function () 
+    awful.key({ modkey, shiftkey, ctrlkey }, "l",     function ()
         local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
         local c = client.focus
         -- Floating: move client
         if c ~= nil and (current_layout == "floating" or c.floating) then
             c:relative_move(  20,  0,  0,   0)
         else
-            awful.tag.incncol(-1, nil, true)    
+            awful.tag.incncol(-1, nil, true)
         end
     end),
     --awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
@@ -324,7 +324,7 @@ keys.globalkeys = gears.table.join(
     -- Run program (d for dmenu ;)
     --awful.key({ modkey },            "d",     function () awful.screen.focused().mypromptbox:run() end,
               --{description = "run prompt", group = "launcher"}),
-    awful.key({ modkey }, "d", function() awful.spawn.with_shell("~/scr/Rofi/rofi_launch") end,
+    awful.key({ modkey }, "d", function() run_once("rofi -show") end,
               {description = "rofi launcher", group = "launcher"}),
 
     -- Run lua code
@@ -449,14 +449,14 @@ keys.globalkeys = gears.table.join(
     awful.key({ modkey }, "grave", function() awful.spawn.with_shell("~/scr/info/stats") end,
               {description = "current system info", group = "launcher"}),
     -- Quick edit config file
-    awful.key({ modkey }, "e", function() awful.spawn.with_shell("~/scr/Rofi/rofi_quickedit") end,
-              {description = "quick edit", group = "launcher"}),
-    -- mpvtube
-    awful.key({ modkey }, "y", function() awful.spawn.with_shell("~/scr/Rofi/rofi_mpvtube") end,
-              {description = "mpvtube", group = "launcher"}),
-    -- mpvtube song
-    awful.key({ modkey, shiftkey }, "y", function() awful.spawn.with_shell("~/scr/info/mpv-query.sh") end,
-              {description = "show mpv media title", group = "launcher"}),
+    -- awful.key({ modkey }, "e", function() awful.spawn.with_shell("~/scr/Rofi/rofi_quickedit") end,
+    --           {description = "quick edit", group = "launcher"}),
+    -- -- mpvtube
+    -- awful.key({ modkey }, "y", function() awful.spawn.with_shell("~/scr/Rofi/rofi_mpvtube") end,
+    --           {description = "mpvtube", group = "launcher"}),
+    -- -- mpvtube song
+    -- awful.key({ modkey, shiftkey }, "y", function() awful.spawn.with_shell("~/scr/info/mpv-query.sh") end,
+    --           {description = "show mpv media title", group = "launcher"}),
     -- Spawn htop in a terminal
     awful.key({ modkey }, "p", function() awful.spawn(terminal .. " -e htop") end,
               {description = "htop", group = "launcher"})
@@ -479,7 +479,7 @@ keys.clientkeys = gears.table.join(
         if current_layout == "floating" or c.floating == true then
             c:relative_move(  0,  0,  0, 20)
         else
-            awful.client.incwfact(0.15)    
+            awful.client.incwfact(0.15)
         end
     end),
     awful.key({ modkey, ctrlkey }, "k",     function (c)
@@ -487,14 +487,14 @@ keys.clientkeys = gears.table.join(
         if current_layout == "floating" or c.floating == true then
             c:relative_move(  0,  0,  0, -20)
         else
-            awful.client.incwfact(-0.15)    
+            awful.client.incwfact(-0.15)
         end
     end),
-    awful.key({ modkey, shiftkey, ctrlkey }, "j", function (c) 
+    awful.key({ modkey, shiftkey, ctrlkey }, "j", function (c)
         -- Relative move
         c:relative_move(0,  20, 0, 0)
     end),
-    awful.key({ modkey, shiftkey, ctrlkey }, "k", function (c) 
+    awful.key({ modkey, shiftkey, ctrlkey }, "k", function (c)
         -- Relative move
         c:relative_move(0, -20, 0, 0)
     end),

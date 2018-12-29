@@ -136,7 +136,8 @@ awful.rules.rules = {
     { rule_any = {
         class = {
           "Nemo",
-          "Thunar"
+          "Thunar",
+          "Nautilus",
           },
       }, properties = { floating = true, width = 580, height = 440 }
     },
@@ -216,7 +217,7 @@ awful.rules.rules = {
           "TeamSpeak 3",
           },
     --local clients =
-     }, properties = { screen = 1, tag = awful.screen.focused().tags[3] } },
+     }, properties = { screen = 1, tag = awful.screen.focused().tags[4] } },
 
     -- Photo editing
     { rule_any = {

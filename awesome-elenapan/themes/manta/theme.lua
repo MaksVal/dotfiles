@@ -26,9 +26,9 @@ local awful = require("awful")
 local screen_width = awful.screen.focused().geometry.width
 local screen_height = awful.screen.focused().geometry.height
 
-theme.wallpaper = os.getenv("HOME") .. "/.config/awesome/themes/" .. theme_name .. "/wall.png"
-theme.font          = "monospace 12"
---theme.font          = "sans-serif 12"
+theme.wallpaper = os.getenv("HOME") .. "/Pictures/Wallpapers/wall.png"
+theme.font          = "Hack Regular 12"
+-- theme.font          = "Iosevka Thin 12"
 
 local accent_color = xrdb.color14
 local focused_color = xrdb.color14
@@ -117,7 +117,7 @@ end
 local symb = "  "
 theme.tagnames = { symb, symb, symb, symb, symb, symb, symb, symb, symb, symb }
 -- Substitutes:   
--- Nature:         
+-- Nature:        
 --theme.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }
 --theme.tagnames = { " i ", " ii ", " iii ", " iv ", " v ", " vi ", " vii ", " viii ", " ix ", " x " }
 
