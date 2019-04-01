@@ -44,11 +44,14 @@ fi
 
 export XDG_CURRENT_DESKTOP=GNOME
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export GTK_THEME=lovelace
-export GTK2_RC_FILES=~/.themes/lovelace/gtk-2.0/gtkrc
+export GTK_THEME=Adwaita
+#export GTK2_RC_FILES=~/.themes/lovelace/gtk-2.0/gtkrc
 
-# exec gnome-session --session=awesome-gnome
-exec  /usr/bin/awesome >> ~/.cache/awesome/stderr 2>&1
+exec gnome-session --debug &
+# exec gnome-session --debug &
+exec /usr/lib/goa-daemon --replace &
+
+#exec  /usr/bin/awesome >> ~/.cache/awesome/stderr 2>&1
 # exec xfce4-session >  ~/.cache/awesome/xfce4-session.log 2>&1
 # exec  ck-launch-session dbus-launch --exit-with-session /usr/bin/awesome
 # exec ck-launch-session /usr/bin/awesome >> ~/.cache/awesome/stderr 2&1
