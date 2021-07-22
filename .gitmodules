@@ -1,4 +1,4 @@
 [submodule "awesome.my"]
 	path = awesome.my
-	url = git@github.com:MaksVal/awesome.dot.git
+	url = https://github.com/MaksVal/awesome.dot
 	branch = 4.1
