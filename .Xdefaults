@@ -289,7 +289,7 @@ Xcursor.theme: gentoo-silver
 Xcursor.size: 20
 
 ! # Сглаживание шрифтов #
-Xft.dpi:			    120
+Xft.dpi:			    96
 Xft.lcdfilter:			lcddefault
 Xft.antialias:          true
 Xft.autohint: 			false
@@ -308,7 +308,7 @@ Xft.rgba: 				rgb
 
 
 Emacs.FontBackend: 		xft
-Emacs.font:				Hack-12
+Emacs.font:				Hack
 
 ! URxvt
 ! URxvt.font:                    xft:Droid Sans Mono:size=11:antialias=true:hinting=false
